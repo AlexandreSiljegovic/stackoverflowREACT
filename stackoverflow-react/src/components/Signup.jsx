@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 // import { registerUser } from "../axios/axios";
 import axios from "axios";
 function SignUpForm() {
@@ -13,7 +13,7 @@ function SignUpForm() {
             last_name: event.target.last_name.value,
         };
 
-        axios.post('http://127.0.0.1:8000/register/', formData, {
+        axios.post('http://127.0.0.1:8000/register', formData, {
             headers: {
                 'Content-Type': 'application/json'
             }

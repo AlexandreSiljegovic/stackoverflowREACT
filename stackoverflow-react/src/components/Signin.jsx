@@ -6,7 +6,7 @@ function Signin() {
 			username : 'username',
 			password : 'password',
 		}
-		axios.get('http://127.0.0.1:8000/register', formData, {
+		axios.get('http://127.0.0.1:8000/login', formData, {
             headers: {
                 'Content-Type': 'application/json'
             }

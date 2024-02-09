@@ -7,7 +7,7 @@ function SignUpForm() {
         
         const formData = {
             username: event.target.username.value,
-            password: event.target.password.value,
+			password: event.target.password.value,
             email: event.target.email.value,
             first_name: event.target.first_name.value,
             last_name: event.target.last_name.value,

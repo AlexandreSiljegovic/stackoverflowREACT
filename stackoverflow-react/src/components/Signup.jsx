@@ -1,16 +1,30 @@
 import React from "react";
-import { registerUser } from "../axios/axios";
+// import { registerUser } from "../axios/axios";
+import axios from "axios";
 function SignUpForm() {
 	function handleSubmit(event) {
-		event.preventDefault();
-		registerUser({
-			username: event.target.username.value,
-			password: event.target.password.value,
-			email: event.target.email.value,
-			first_name: event.target.first_name.value,
-			last_name: event.target.last_name.value,
-		});
-	}
+        event.preventDefault();
+        
+        const formData = {
+            username: event.target.username.value,
+            password: event.target.password.value,
+            email: event.target.email.value,
+            first_name: event.target.first_name.value,
+            last_name: event.target.last_name.value,
+        };
+
+        axios.post('http://127.0.0.1:8000/register/', formData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            console.log("Register response:", response.data);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+    }
 	return (
 		<section className="bg-gray-50 dark:bg-gray-900 w-full">
 			<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
